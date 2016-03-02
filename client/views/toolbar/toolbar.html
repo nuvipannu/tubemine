@@ -1,0 +1,35 @@
+<template name="toolbar">
+    <div class="ui fixed menu">
+        <div class="header item">
+            <img class="logo" src="http://oi57.tinypic.com/15iay6c.jpg">
+            <a href="/" id="brand"><strong>Tube<span>Mine</span></strong></a>
+        </div>
+
+        {{#if channelName}}
+            <div class="ui item breadcrumb">
+                <i class="right file video outline icon"></i>
+                <div class="active section">
+                    {{channelName}}
+                </div>
+                {{#if videoName}}
+                    <span class="divider">/</span>
+                    <i class="right film icon"></i>
+                    <div class="active section">{{videoName}}</div>
+                {{/if}}
+            </div>
+        {{/if}}
+
+        <div class="right menu">
+            <a class="item" href="/users/list">
+                Users
+            </a>
+
+            <div class="item">
+                <div class="ui action left icon input">
+                    <input id="channelName" type="text" placeholder="Search Channels..." value="{{queryValue}}">
+                    <button class="ui button" id="searchButton"><i class="search icon"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,17 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "uses": [
+    {
+      "package": "meteor"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.cordova-legacy/packages/renaldo_youtube-api/packages/renaldo_youtube-api.js",
+      "length": 0,
+      "offset": 0,
+      "servePath": "/packages/renaldo_youtube-api/packages/renaldo_youtube-api.js"
+    }
+  ]
+}

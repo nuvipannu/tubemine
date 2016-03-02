@@ -1,0 +1,38 @@
+<template name="users">
+
+    {{>toolbar}}
+
+    <section id="container">
+        <h3 class="ui horizontal header">
+            <i class="users icon"></i>
+            Users
+        </h3>
+
+        <div class="ui ten doubling cards">
+            {{#each usersCollectionItems}}
+                {{>useritem}}
+            {{/each}}
+        </div>
+
+    </section>
+
+</template>
+
+<template name="useritem">
+    <div class="card">
+        <div class="image">
+            <img src="{{image}}">
+        </div>
+        <div class="content">
+            <div class="header"><a href="{{channelUrl}}">{{name}}</a></div>
+        </div>
+        <div class="extra content">
+            <span class="left floated">
+                 <a href="/users/{{encodeString name}}"><i class="comments icon"></i> Comments</a>
+            </span>
+          <span class="right floated">
+            <a href="{{googlePlusUrl}}"><i class="google plus square icon"></i></a>
+          </span>
+        </div>
+    </div>
+</template>

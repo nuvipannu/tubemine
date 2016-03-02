@@ -1,0 +1,55 @@
+<template name="comments">
+
+    {{>toolbar}}
+
+    {{#if spin}}
+        {{> spinner}}
+    {{else}}
+        <section id="container">
+            <h3 class="ui horizontal header">
+                <i class="comments icon"></i>
+                Comments
+            </h3>
+
+            <div class="ui raised padded text container segment">
+                <div class="ui threaded comments">
+                    {{#if commentsItems}}
+                        {{#each videoComments}}
+                            {{>commentitem}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            </div>
+        </section>
+    {{/if}}
+
+</template>
+
+<template name="commentitem">
+    <div class="comment">
+        <a class="avatar">
+            <img src="{{snippet.topLevelComment.snippet.authorProfileImageUrl}}">
+        </a>
+
+        <div class="content">
+            <a class="author"
+               href="{{snippet.topLevelComment.snippet.authorChannelUrl}}">{{snippet.topLevelComment.snippet.authorDisplayName}}</a>
+
+            <div class="metadata">
+                <a class="date"
+                   href="https://www.youtube.com/watch?v={{snippet.videoId}}&lc={{id}}">{{formatDate snippet.topLevelComment.snippet.updatedAt}}</a>
+
+                <div class="rating">
+                    <i class="thumbs outline up icon"></i> {{snippet.topLevelComment.snippet.likeCount}}
+                </div>
+            </div>
+            <div class="text">
+                {{parseHTML snippet.topLevelComment.snippet.textDisplay}}
+            </div>
+            <div class="actions">
+                <a href="{{snippet.topLevelComment.snippet.authorGoogleplusProfileUrl}}"><i
+                        class="google plus square icon"></i> Profile</a>
+            </div>
+        </div>
+    </div>
+</template>

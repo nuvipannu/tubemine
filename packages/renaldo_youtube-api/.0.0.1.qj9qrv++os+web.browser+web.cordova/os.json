@@ -1,0 +1,27 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "YoutubeApi",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    }
+  ],
+  "node_modules": "npm/node_modules",
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/packages/renaldo:youtube-api.js",
+      "length": 610,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "/packages/renaldo:youtube-api.js",
+      "hash": "a98e6b793b91390eaf4f9d17c67facbd11e590b7"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<template name="user">
+
+    {{>toolbar}}
+
+    <section id="container">
+        <h3 class="ui horizontal header">
+            <i class="comments icon"></i>
+            Comments for: {{userName}}
+        </h3>
+
+        <div class="ui raised padded text container segment">
+            <div class="ui threaded comments">
+                {{#each userComments}}
+                    {{>usercommentitem}}
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+</template>
+
+<template name="usercommentitem">
+    <div class="comment">
+
+        <a class="avatar">
+            <img src="{{channelImageUrl channelId}}">
+        </a>
+
+        <div class="content">
+            <a class="author" href="/videos/{{channelId}}/{{encodeString channelName}}"><i class="file video outline icon"></i>{{channelName}}</a>
+            /
+            <a class="author" href="https://www.youtube.com/watch?v={{videoId}}"><i
+                    class="film outline icon"></i>{{videoName}}</a>
+
+            <div class="metadata">
+                <a class="date"
+                   href="https://www.youtube.com/watch?v={{videoId}}&lc={{commentId}}">{{formatDate updatedAt}}</a>
+
+                <div class="rating">
+                    <i class="thumbs outline up icon"></i> {{likeCount}}
+                </div>
+            </div>
+
+            <div class="text">
+                {{parseHTML textDisplay}}
+            </div>
+        </div>
+    </div>
+</template>

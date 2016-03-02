@@ -1,0 +1,58 @@
+<template name="channels">
+
+    {{>toolbar}}
+
+    {{#if spin}}
+        {{> spinner}}
+    {{else}}
+        <section id="container">
+            <h3 class="ui horizontal header">
+                <i class="file video outline icon"></i>
+                Channels
+            </h3>
+
+            {{#if query}}
+                <div class="ui seven doubling cards">
+                    {{#if channelsItems}}
+                        {{#each channelsCollectionItems}}
+                            {{>channelitem}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            {{/if}}
+
+        </section>
+    {{/if}}
+
+</template>
+
+<template name="channelitem">
+    <div class="card">
+        <div class="image">
+            <img src="{{snippet.thumbnails.default.url}}">
+        </div>
+        <div class="content">
+            <a class="header" data-content="{{snippet.description}}">{{snippet.title}}</a>
+        </div>
+        <div class="ui list attached">
+            <!--
+            <div class="item">
+                Comment Count<strong> {{statistics.commentCount}}</strong>
+            </div>
+            -->
+            <div class="item">
+                Subscribers Count<strong> {{statistics.subscriberCount}}</strong>
+            </div>
+            <div class="item">
+                Video Count<strong> {{statistics.videoCount}}</strong>
+            </div>
+            <div class="item">
+                View Count<strong> {{statistics.viewCount}}</strong>
+            </div>
+        </div>
+        <a class="ui bottom attached button" href="/videos/{{id.channelId}}/{{encodeString snippet.title}}">
+            <i class="film icon"></i>
+            Go to Videos
+        </a>
+    </div>
+</template>

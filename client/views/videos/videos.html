@@ -1,0 +1,46 @@
+<template name="videos">
+
+    {{>toolbar}}
+
+    {{#if spin}}
+        {{> spinner}}
+    {{else}}
+        <section id="container">
+            <h3 class="ui horizontal header">
+                <i class="film outline icon"></i>
+                Videos
+            </h3>
+
+            <div class="ui seven doubling cards">
+                {{#if videosItems}}
+                    {{#each searchVideosItems}}
+                        {{>videoitem}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </section>
+    {{/if}}
+
+</template>
+
+<template name="videoitem">
+    <div class="card">
+        <div class="image">
+            <img src="{{snippet.thumbnails.default.url}}">
+        </div>
+        <div class="content">
+            <div class="header">{{snippet.title}}</div>
+            <div class="meta">
+                {{formatDate snippet.publishedAt}}
+            </div>
+            <div class="description">
+                {{snippet.description}}
+            </div>
+        </div>
+        <a class="ui bottom attached button"
+           href="/comments/{{id.videoId}}/{{channelName}}/{{encodeString snippet.title}}">
+            <i class="comments icon"></i>
+            Go to Comments
+        </a>
+    </div>
+</template>
